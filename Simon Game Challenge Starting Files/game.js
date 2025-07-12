@@ -33,6 +33,8 @@ $(".btn").click(function(){
 
 
 function checkAnswer(currentLevel) {
+  console.log("User clicked:", userClickedPattern[currentLevel]);
+  console.log("Expected:", gamePattern[currentLevel]);
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
     console.log("Success");
     if (userClickedPattern.length === gamePattern.length) {
@@ -62,6 +64,9 @@ function nextSequence() {
   var randomnumber = Math.floor(Math.random()*4) ;
   var randomChosenColor = buttoncolours[randomnumber];
   gamePattern.push(randomChosenColor);
+
+  console.log("Next color:", randomChosenColor);
+  console.log("Full pattern:", gamePattern);
 
   $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
 
