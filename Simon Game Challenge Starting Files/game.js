@@ -6,13 +6,13 @@ var started = false;
 
 var level = 0;
 
-$(document).keypress(function () {
-  if (!started) {
-    //$("#level-title").text("Level " + level);
-    nextSequence();
-    started = true;
-  }
-});
+// $(document).keypress(function () {
+//   if (!started) {
+//     //$("#level-title").text("Level " + level);
+//     nextSequence();
+//     started = true;
+//   }
+// });
 $(document).on("keypress click", function () {
   if (!started) {
     //$("#level-title").text("Level " + level);
@@ -33,8 +33,8 @@ $(".btn").click(function(){
 
 
 function checkAnswer(currentLevel) {
-  console.log("User clicked:", userClickedPattern[currentLevel]);
-  console.log("Expected:", gamePattern[currentLevel]);
+  console.log("User clicked pattern length:", userClickedPattern.length);
+  console.log("Expected full pattern length:", gamePattern.length);
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
     console.log("Success");
     if (userClickedPattern.length === gamePattern.length) {
@@ -59,7 +59,7 @@ function checkAnswer(currentLevel) {
 function nextSequence() {
   userClickedPattern = [];
   level++;
-  $("#level-title").text("level " + level);
+  $("#level-title").text("level " + Level);
 
   var randomnumber = Math.floor(Math.random()*4) ;
   var randomChosenColor = buttoncolours[randomnumber];
