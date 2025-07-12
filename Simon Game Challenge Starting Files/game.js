@@ -8,7 +8,14 @@ var level = 0;
 
 $(document).keypress(function () {
   if (!started) {
-    $("#level-title").text("Level " + level);
+    //$("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
+$(document).on("keypress click", function () {
+  if (!started) {
+    //$("#level-title").text("Level " + level);
     nextSequence();
     started = true;
   }
@@ -49,9 +56,7 @@ function checkAnswer(currentLevel) {
 
 function nextSequence() {
   userClickedPattern = [];
-
   level++;
-
   $("#level-title").text("level " + level);
 
   var randomnumber = Math.floor(Math.random()*4) ;
